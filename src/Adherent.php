@@ -13,11 +13,11 @@ class Adherent
 
 	public function lendABook($book)
 	{
-
 		if (is_null($this->lend) && is_null($book->getReservation())) {
 			$lend = new Reservation($this, $book, new \DateTime());
 			$book->setReservation($lend);
 			$this->lend = $lend;
+			var_dump($lend);
 			echo "Le livre'" . $book->getNom() . "' vous a été réservé";
 		}
 	}

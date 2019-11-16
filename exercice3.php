@@ -9,9 +9,9 @@ use Ipssi\Evaluation\Bibliotheque;
 use Ipssi\Evaluation\Oeuvre; 
 use Ipssi\Evaluation\Reservation;
 
-$book1 = new Oeuvre("test1");
-$book2 = new Oeuvre("test2");
-$book3 = new Oeuvre("test3");
+$book1 = new Oeuvre("test1", 10);
+$book2 = new Oeuvre("test2", 10);
+$book3 = new Oeuvre("test3", 1);
 $adherent = new Adherent("jean");
 $adherent->lendABook($book2);
 // echo $thomas->getLivreExpire().PHP_EOL;

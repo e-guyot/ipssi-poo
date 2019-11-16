@@ -6,9 +6,11 @@ class Oeuvre
 {
 	private $nom; 
 	private $lend =NULL;
+	private $nbExemplaire;
 
-	function __construct($nom){
+	function __construct(string $nom, int $nbExemplaire){
 		$this->nom = $nom;
+		$this->nbExemplaire = $nbExemplaire;
 	}
     /**
      * @return mixed
@@ -24,5 +26,6 @@ class Oeuvre
 
     public function setReservation($lend){
     	$this->lend = $lend;
+    	$this->nbExemplaire -= 1; 
     }
 }
