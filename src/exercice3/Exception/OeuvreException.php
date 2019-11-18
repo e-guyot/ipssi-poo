@@ -1,6 +1,6 @@
 <?php
 
-namespace Ipssi\Evaluation\Exception;
+namespace Ipssi\Evaluation\exercice3\Exception;
 
 class OeuvreException extends \Error
 {

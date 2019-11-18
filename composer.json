@@ -4,7 +4,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Ipssi\\Evaluation\\" : "src/"
+            "Ipssi\\Evaluation\\exercice3\\" : "src/exercice3/",
+            "Ipssi\\Evaluation\\exercice2\\" : "src/exercice2/",
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ipssi\Evaluation;
+namespace Ipssi\Evaluation\exercice3;
 
 class Reservation
 {
