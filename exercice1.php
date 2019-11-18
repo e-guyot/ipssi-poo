@@ -38,6 +38,6 @@ while(!$marche){
 		$climate->output("Le résultat de la division est : " . (new Diviseur())->division($index, $diviseur, $valeurs));
 		$marche = true;
 	} catch (\Error $e) {
-		echo "Erreur : ".$e->getMessage(). "\n";
+		echo "Erreur : ".$e->getMessage().PHP_EOL;
 	}
 }

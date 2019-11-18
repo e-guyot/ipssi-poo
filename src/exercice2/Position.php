@@ -12,5 +12,8 @@ class Position
 		$this->y = $y;
 	}
 
+	function getPosition(){
+		return $this->x.$this->y;
+	}
 
 }

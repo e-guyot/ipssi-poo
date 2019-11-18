@@ -13,9 +13,6 @@ class Element
 		$this->texte = $texte;
 		$this->img = $img;
 	}
-
-
-
     /**
      * @return mixed
      */

@@ -10,4 +10,8 @@ require_once('vendor/autoload.php');
 // Une couleur est exprimé en RGB
 // Faire les class nécessaire pour pouvoir afficher un compte rendu complet de la composition d'un document.
 
-use 
+use Ipssi\Evaluation\exercice2\Couleur;
+use Ipssi\Evaluation\exercice2\Document; 
+use Ipssi\Evaluation\exercice2\Element;
+use Ipssi\Evaluation\exercice2\Position;
+
