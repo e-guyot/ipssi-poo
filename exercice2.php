@@ -15,3 +15,4 @@ use Ipssi\Evaluation\exercice2\Document;
 use Ipssi\Evaluation\exercice2\Element;
 use Ipssi\Evaluation\exercice2\Position;
 
+$document = new Document();
