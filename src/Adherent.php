@@ -17,7 +17,6 @@ class Adherent
 			$lend = new Reservation($this, $book, new \DateTime());
 			$book->setReservation($lend);
 			$this->lend = $lend;
-			var_dump($lend);
 			echo "Le livre'" . $book->getNom() . "' vous a été réservé";
 		}
 	}
