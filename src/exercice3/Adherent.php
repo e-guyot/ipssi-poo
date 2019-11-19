@@ -19,7 +19,7 @@ class Adherent
 				$book->setReservation($lend);
 
 				if ($book->getNbExemplaire() < 0) {
-					throw new \Error("le livre n'est pas disponible"); 
+					return false;
 				}
 				$this->lend = $lend;
 
