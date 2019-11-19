@@ -11,14 +11,22 @@ class Adherent
 		$this->nom = $nom;
 	}
 
-	public function lendABook($book)
+	public function lendABook(Bibliotheque $biblio, $book)
 	{
-		if (is_null($this->lend) && is_null($book->getReservation())) {
-			$lend = new Reservation($this, $book, new \DateTime());
-			$book->setReservation($lend);
-			$this->lend = $lend;
-			echo "Le livre'" . $book->getNom() . "' vous a été réservé";
+		if  ($biblio->bookExist($book)){
+			if (is_null($this->lend) && is_null($book->getReservation())) {
+				$lend = new Reservation($this, $book, new \DateTime());
+				$book->setReservation($lend);
+
+				if ($book->getNbExemplaire() < 0) {
+					throw new \Error("le livre n'est pas disponible"); 
+				}
+				$this->lend = $lend;
+
+				return "Le livre'" . $book->getNom() . "' vous a été réservé";
+			}
 		}
+		return false;
 	}
 
 

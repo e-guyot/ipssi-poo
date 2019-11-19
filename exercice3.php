@@ -8,22 +8,29 @@ use Ipssi\Evaluation\exercice3\Adherent;
 use Ipssi\Evaluation\exercice3\Oeuvre; 
 use Ipssi\Evaluation\exercice3\Reservation;
 use Ipssi\Evaluation\exercice3\OeuvreException;
+use Ipssi\Evaluation\exercice3\Bibliotheque;
 
 
 
 try {
-	$book1 = new Oeuvre("test1", 10);
-	$book2 = new Oeuvre("test2", 10);
-	$book3 = new Oeuvre("test3", 1);
+	$biblio = new Bibliotheque ([
+		$book1 = new Oeuvre("test1", 10),
+		$book2 = new Oeuvre("test2", 10),
+		$book3 = new Oeuvre("test3", 0)
+	]);
 
 	$adherent = new Adherent("jean");
-
-
-
-	$adherent->lendABook($book2).PHP_EOL;
+	$livreAReserve = $adherent->lendABook($biblio, $book2);
+	if(!$livreAReserve){//demande dans quel bibliotheque veut t'il reserve et quel livre.
+	throw new \Error("le livre n'existe pas");
+} else{
+	echo $livreAReserve.PHP_EOL;
+}
 }catch (OeuvreException $e) {
 	echo sprintf(
-		"Error : ",
+		"Error : ".
 		$e->getGivenType()
 	) . PHP_EOL;
+}catch (Error $e){
+	echo "Erreur : ".$e->getMessage().PHP_EOL;
 }

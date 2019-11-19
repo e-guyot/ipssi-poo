@@ -28,4 +28,12 @@ class Oeuvre
     	$this->lend = $lend;
     	$this->nbExemplaire -= 1; 
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNbExemplaire()
+    {
+        return $this->nbExemplaire;
+    }
 }
