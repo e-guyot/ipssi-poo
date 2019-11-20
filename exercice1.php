@@ -14,17 +14,18 @@ class Diviseur {
 $marche = false;
 $valeurs = [17, 12, 15, 38, 29, 157, 89, -22, 0, 5];
 
-while(!$marche){
 
-	try{
-		$climate = new League\CLImate\CLImate;
+
+try{
+	$climate = new League\CLImate\CLImate;
+	while(!$marche){
 		$input = $climate->input("Entrez l’indice de l’entier à diviser : ");
 		$index =  $input->prompt();
 
 		$input = $climate->input("Entrez le diviseur : ");
 		$diviseur = $input->prompt();
 		if (filter_var($index, FILTER_VALIDATE_INT) === FALSE || filter_var($diviseur, FILTER_VALIDATE_INT) === FALSE) {
-			throw new \Error("Erreur les valeurs ne sont pas des entier !");
+			throw new \Exception("Erreur les valeurs ne sont pas des entier !");
 		}
 		if ($index > count($valeurs) || $index < 0) {
 			throw new \Error("Erreur l'indice doit être choisi entre 0 et 9");
@@ -37,7 +38,10 @@ while(!$marche){
 
 		$climate->output("Le résultat de la division est : " . (new Diviseur())->division($index, $diviseur, $valeurs));
 		$marche = true;
-	} catch (\Error $e) {
-		echo "Erreur : ".$e->getMessage().PHP_EOL;
 	}
+} catch (\Error $e) {
+	echo "Erreur : ".$e->getMessage().PHP_EOL;
+} catch (\Exception $e) {
+	echo "Erreur : ".$e->getMessage().PHP_EOL;
 }
+
