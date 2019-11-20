@@ -2,7 +2,7 @@
 
 namespace Ipssi\Evaluation\exercice3\Exception;
 
-class OeuvreException extends \Error
+class OeuvreException extends \Exception
 {
     private $givenData;
 

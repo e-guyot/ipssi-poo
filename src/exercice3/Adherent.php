@@ -14,13 +14,14 @@ class Adherent
 	public function lendABook(Bibliotheque $biblio, $book)
 	{
 		if  ($biblio->bookExist($book)){
+			if ($book->getNbExemplaire() < 0) {
+				throw new \Exception("Le livre n'est plus disponible");
+				
+				return false;
+			}
 			if (is_null($this->lend) && is_null($book->getReservation())) {
 				$lend = new Reservation($this, $book, new \DateTime());
 				$book->setReservation($lend);
-
-				if ($book->getNbExemplaire() < 0) {
-					return false;
-				}
 				$this->lend = $lend;
 
 				return "Le livre'" . $book->getNom() . "' vous a été réservé";
